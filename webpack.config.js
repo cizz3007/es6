@@ -26,7 +26,7 @@ module.exports = {
                         loader: "css-loader",
                         options: {
                             modules:true,
-                            localIdentName:'Littleone_[path][name]__[local]--[hash:base64:5]',
+                            localIdentName:'[name]_[hash:base64:10]',
                             minimize:true
                         }
                     }

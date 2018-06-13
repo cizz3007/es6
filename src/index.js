@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import './reset.css';
 import styles from './index.css';
+
 function Square(props) {
     return (
         <button className={styles.square} onClick={props.onClick}>
@@ -88,6 +89,41 @@ class Game extends React.Component {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
         const winner = calculateWinner(current.squares);
+        const color = {
+            brown: "color:#560000;font-size:11px;",
+            red: "color:#d83128;font-size:11px;",
+            yellow: "color:#ea991b;font-size:11px;",
+            green: "color:#93ba2f;font-size:11px;",
+            blue: "color:#4da4e0;font-size:11px;",
+            magenta: "color:#ff5274;font-size:11px",
+            black: "color:#333333;font-size:11px",
+            tangerineTango: 'color:#EF5442',
+            violetPurple: 'color:#604C8D; font-size:11px'
+        };
+
+
+        console.log(
+            "%c*************************************************************\n" +
+            "%c                 __    __________________    ______          \n" +
+            "%c                / /   /  _/_  __/_  __/ /   / ____/          \n" +
+            "%c               / /    / /  / /   / / / /   / __/             \n" +
+            "%c              / /____/ /  / /   / / / /___/ /___             \n" +
+            "%c             /_____/___/ /_/   /_/ /_____/_____/             \n" +
+            "%c                      _____.  _   __._____                   \n" +
+            "%c                     / __  / / | / / ____/                   \n" +
+            "%c                    / / / / /  |/ / __/                      \n" +
+            "%c                   / /_/ / / /|  / /___                      \n" +
+            "%c                  .____.. /_/ |_/_____/                      \n\n" +
+            "%c*************************************************************\n" +
+            "%c 프론트 개발자 : %c김창현                                    \n" +
+            "%c 백엔드 개발자 : %c장지수                                    \n" +
+            "%c-------------현재 인하우스 개발 중입니다.ver Beta------------\n",
+            color.green, color.red, color.magenta, color.magenta, color.magenta,
+            color.magenta, color.magenta, color.magenta, color.magenta, color.magenta,
+            color.magenta, color.green, color.tangerineTango, color.blue, color.tangerineTango,
+            color.violetPurple, color.yellow,
+        );
+
 
         const moves = history.map((step, move) => {
             const desc = move ?
@@ -107,6 +143,7 @@ class Game extends React.Component {
             status = "Next player: " + (this.state.xIsNext ? "X" : "O");
         }
 
+
         return (
             <div className="game">
                 <div className="game-board">
@@ -119,6 +156,7 @@ class Game extends React.Component {
                     <div>{status}</div>
                     <ol>{moves}</ol>
                 </div>
+                <Shift/>
             </div>
         );
     }
